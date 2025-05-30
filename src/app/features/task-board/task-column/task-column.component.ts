@@ -29,12 +29,14 @@ export class TaskColumnComponent implements OnInit {
   }
 
   loadTasks(): void {
+    this.tasks = [];
     this.tasks = this.taskService.getTasks().filter(t => t.status === this.status);
   }
 
   onTaskDrop(event: CdkDragDrop<TaskDto[]>): void {
     if (event.previousContainer === event.container) {
       moveItemInArray(this.tasks, event.previousIndex, event.currentIndex);
+      this.taskService.saveTasks(this.tasks);
     } else {
       const task = event.previousContainer.data[event.previousIndex];
       task.status = this.status;
@@ -47,10 +49,5 @@ export class TaskColumnComponent implements OnInit {
         event.currentIndex
       );
     }
-
-    this.taskService.saveTasks([
-      ...event.container.data,
-      ...event.previousContainer.data
-    ]);
   }
 }

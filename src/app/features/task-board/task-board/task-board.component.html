@@ -1,19 +1,50 @@
+<!-- Header with Add Task Button -->
 <div class="task-board-header">
   <button (click)="openAddTaskModal()" class="add-task-btn">➕ Add Task</button>
 </div>
 
-<!-- The rest of your task columns -->
+<!-- Task Columns -->
 <div class="task-board">
   <app-task-column status="todo" title="📝 To Do"></app-task-column>
   <app-task-column status="in-progress" title="🚧 In Progress"></app-task-column>
   <app-task-column status="done" title="✅ Done"></app-task-column>
 </div>
 
-<!-- Modal form (already written by you) -->
+<!-- Modal for Adding Task -->
 <app-modal
   [isOpen]="isModalOpen"
   title="Add New Task"
   (close)="closeModal()"
 >
-  <!-- Form goes here -->
+  <form #taskForm="ngForm" (ngSubmit)="submitTask(taskForm)">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        id="title"
+        name="title"
+        type="text"
+        required
+        minlength="3"
+        ngModel
+        #title="ngModel"
+      />
+      <div *ngIf="title.invalid && title.touched" class="error">
+        Title is required (min 3 chars)
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        name="description"
+        rows="4"
+        ngModel
+      ></textarea>
+    </div>
+
+    <button type="submit" [disabled]="taskForm.invalid" class="submit-btn">
+      ➕ Add Task
+    </button>
+  </form>
 </app-modal>

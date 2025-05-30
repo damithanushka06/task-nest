@@ -1,9 +1,18 @@
 <div class="task-column">
   <h3>{{ title }}</h3>
-  <div class="task-list">
-    <app-task-card
+
+  <div
+    cdkDropList
+    [cdkDropListData]="tasks"
+    class="task-list"
+    (cdkDropListDropped)="onTaskDrop($event)"
+  >
+    <div
       *ngFor="let task of tasks"
-      [task]="task"
-    ></app-task-card>
+      cdkDrag
+      class="task-card-wrapper"
+    >
+      <app-task-card [task]="task"></app-task-card>
+    </div>
   </div>
 </div>

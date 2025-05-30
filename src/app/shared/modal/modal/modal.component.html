@@ -1,1 +1,25 @@
-<p>modal works!</p>
+<div
+  class="modal-overlay"
+  *ngIf="isOpen"
+  (click)="onBackdropClick($event)"
+  role="dialog"
+  aria-modal="true"
+>
+  <div class="modal-content" role="document">
+    <header class="modal-header">
+      <h2>{{ title }}</h2>
+      <button
+        type="button"
+        class="close-button"
+        aria-label="Close modal"
+        (click)="onClose()"
+      >
+        &times;
+      </button>
+    </header>
+
+    <section class="modal-body">
+      <ng-content></ng-content>
+    </section>
+  </div>
+</div>

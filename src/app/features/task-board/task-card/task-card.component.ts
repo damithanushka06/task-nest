@@ -1,11 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import {DatePipe} from '@angular/common';
+import {TaskDto} from '../../../core/models/task-dto';
 
 @Component({
   selector: 'app-task-card',
-  imports: [],
+  standalone: true,
   templateUrl: './task-card.component.html',
-  styleUrl: './task-card.component.scss'
+  imports: [
+    DatePipe
+  ],
+  styleUrls: ['./task-card.component.scss']
 })
 export class TaskCardComponent {
-
+  @Input() task!: TaskDto;
 }

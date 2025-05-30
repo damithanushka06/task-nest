@@ -1,0 +1,35 @@
+.task-board-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+
+  button {
+    background-color: #0055ff;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #0041cc;
+    }
+  }
+}
+
+.add-task-btn {
+  padding: 0.5rem 1rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #218838;
+  }
+}

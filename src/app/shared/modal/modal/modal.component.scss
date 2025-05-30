@@ -1,0 +1,99 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeInOverlay 0.3s ease forwards;
+}
+
+.modal-content {
+  background-color: #fff;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideDown 0.3s ease forwards;
+}
+
+.modal-header {
+  padding: 1rem 1.5rem;
+  background-color: #0055ff;
+  color: white;
+  font-weight: 700;
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h2 {
+    margin: 0;
+  }
+
+  .close-button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.75rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &:focus {
+      color: #ff4d4d;
+      outline: none;
+    }
+  }
+}
+
+.modal-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex-grow: 1;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+@keyframes fadeInOverlay {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    max-width: 95%;
+    max-height: 90vh;
+    border-radius: 10px;
+  }
+
+  .modal-header {
+    font-size: 1.1rem;
+  }
+
+  .close-button {
+    font-size: 1.5rem;
+  }
+}

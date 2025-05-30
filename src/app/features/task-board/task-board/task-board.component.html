@@ -1,1 +1,17 @@
-<p>task-board works!</p>
+<div class="task-board-header">
+  <button (click)="openAddTaskModal()">+ Add TaskDto</button>
+</div>
+
+<div class="task-board">
+  <app-task-column status="todo" title="📝 To Do"></app-task-column>
+  <app-task-column status="in-progress" title="🚧 In Progress"></app-task-column>
+  <app-task-column status="done" title="✅ Done"></app-task-column>
+</div>
+
+<app-modal
+  [isOpen]="isModalOpen"
+  title="Add New TaskDto"
+  (close)="closeModal()"
+>
+  <!-- TaskDto form will go here -->
+</app-modal>

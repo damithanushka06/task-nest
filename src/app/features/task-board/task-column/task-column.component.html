@@ -1,1 +1,9 @@
-<p>task-column works!</p>
+<div class="task-column">
+  <h3>{{ title }}</h3>
+  <div class="task-list">
+    <app-task-card
+      *ngFor="let task of tasks"
+      [task]="task"
+    ></app-task-card>
+  </div>
+</div>

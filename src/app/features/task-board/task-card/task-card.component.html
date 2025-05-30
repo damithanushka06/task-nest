@@ -1,1 +1,5 @@
-<p>task-card works!</p>
+<div class="task-card">
+  <h4>{{ task.title }}</h4>
+  <p>{{ task.description }}</p>
+  <span class="date">{{ task.createdAt | date:'short' }}</span>
+</div>

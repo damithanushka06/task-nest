@@ -1,4 +1,4 @@
-# 🪺 TaskNest – Your Personal Task Organizer
+# 🪺 TaskNest – Your Personal TaskDto Organizer
 
 TaskNest is a clean and minimal task management app built with Angular Standalone APIs and SCSS. It helps you organize tasks by status, supports drag-and-drop UI, and runs entirely in your browser.
 
@@ -17,10 +17,10 @@ TaskNest is a clean and minimal task management app built with Angular Standalon
 src/
 └── app/
 ├── core/                     # Core services, interfaces, constants
-│   ├── models/               # Task model (TypeScript interfaces)
-│   │   └── task.model.ts
+│   ├── models/               # TaskDto model (TypeScript interfaces)
+│   │   └── task-dto.ts
 │   └── services/             # App-wide services
-│       └── task.service.ts   # Task logic (CRUD, localStorage)
+│       └── task.service.ts   # TaskDto logic (CRUD, localStorage)
 │
 ├── shared/                   # Reusable UI components
 │   ├── button/               # Button component (reused)
@@ -49,7 +49,7 @@ task-card =>	Represents a single draggable task
 button (shared) =>	Reusable button styles and behavior
 modal (shared)	=> Pop-up dialog for creating/editing tasks
 task.service.ts =>	Handles state management (localStorage, CRUD)
-task.model.ts =>	TypeScript interface for Task object
+task-dto.ts =>	TypeScript interface for TaskDto object
 
 ## 🚀 Getting Started
 

@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
-import { TaskDto, TaskStatus } from '../models/task-dto';
+import { BehaviorSubject } from 'rxjs';
+import { TaskDto } from '../models/task-dto';
 import { v4 as uuidv4 } from 'uuid';
 
 @Injectable({ providedIn: 'root' })
 export class TaskService {
   private tasksKey = 'tasknest_tasks';
+  private tasksSubject = new BehaviorSubject<TaskDto[]>(this.getTasks());
+  tasks$ = this.tasksSubject.asObservable();
 
   getTasks(): TaskDto[] {
     const data = localStorage.getItem(this.tasksKey);
@@ -13,6 +16,7 @@ export class TaskService {
 
   saveTasks(tasks: TaskDto[]): void {
     localStorage.setItem(this.tasksKey, JSON.stringify(tasks));
+    this.tasksSubject.next(tasks);
   }
 
   addTask(title: string, description: string): void {

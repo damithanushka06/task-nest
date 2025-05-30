@@ -18,3 +18,18 @@
     }
   }
 }
+
+.add-task-btn {
+  padding: 0.5rem 1rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #218838;
+  }
+}
